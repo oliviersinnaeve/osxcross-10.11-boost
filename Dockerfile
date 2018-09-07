@@ -44,7 +44,7 @@ RUN SDK_VERSION=$OSXCROSS_SDK_VERSION                           \
     sed -i -e 's|-march=native||g' ./build_clang.sh ./wrapper/build.sh && \
     ./tools/get_dependencies.sh &&                              \
     curl -L -o ./tarballs/MacOSX${OSXCROSS_SDK_VERSION}.sdk.tar.xz \
-    https://github.com/phracker/MacOSX-SDKs/releases/download/${OSXCROSS_SDK_VERSION}/MacOSX${OSXCROSS_SDK_VERSION}.sdk.tar.xz && \
+    https://github.com/apriorit/osxcross-sdks/raw/master/MacOSX${OSXCROSS_SDK_VERSION}.sdk.tar.xz && \
     yes | PORTABLE=true ./build.sh &&                           \
     ./build_compiler_rt.sh
     
