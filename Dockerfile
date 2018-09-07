@@ -54,8 +54,8 @@ ENV CXX x86_64-apple-darwin17-c++
 ENV PATH $PATH:/opt/osxcross/target/bin
 
 RUN osxcross-macports -v install boost && \
-    ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-otool /opt/osxcross/target/bin/otool && \
-    ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-install_name_tool /opt/osxcross/target/bin/install_name_tool
+    ln -s /opt/osxcross/target/bin/x86_64-apple-darwin17-otool /opt/osxcross/target/bin/otool && \
+    ln -s /opt/osxcross/target/bin/x86_64-apple-darwin17-install_name_tool /opt/osxcross/target/bin/install_name_tool
 
 RUN apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.6 main" && \
     apt-get update && \
