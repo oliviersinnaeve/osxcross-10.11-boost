@@ -44,14 +44,16 @@ RUN SDK_VERSION=$OSXCROSS_SDK_VERSION                           \
     yes | PORTABLE=true ./build.sh &&                           \
     ./build_compiler_rt.sh
     
-RUN osxcross-macports -v install boost && \
-    ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-otool /opt/osxcross/target/bin/otool && \
-    ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-install_name_tool /opt/osxcross/target/bin/install_name_tool
-
 ENV UNATTENDED 1
 ENV AR x86_64-apple-darwin15-ar
 ENV LD x86_64-apple-darwin15-ld
 ENV CC x86_64-apple-darwin15-cc
 ENV CXX x86_64-apple-darwin15-c++
 ENV PATH $PATH:/opt/osxcross/target/bin
+
+RUN osxcross-macports -v install boost && \
+    ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-otool /opt/osxcross/target/bin/otool && \
+    ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-install_name_tool /opt/osxcross/target/bin/install_name_tool
+
+
 CMD /bin/bash
