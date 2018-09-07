@@ -17,6 +17,7 @@ RUN apt-get update && \
         texinfo             \
         cmake               \
         wget                \
+	zip 		    \
         software-properties-common \
         python-software-properties && \
     apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main" && \
