@@ -31,7 +31,7 @@ RUN ln -f -s /usr/bin/clang-3.9 /usr/bin/clang	&& ln -f -s /usr/bin/clang++-3.9 
 # built with `-march=native` on one of those may not run on every machine - I
 # ran into this problem when the images wouldn't run on my 2013-era Macbook
 # Pro.  As such, we remove this flag entirely.
-ENV OSXCROSS_SDK_VERSION 10.13
+ENV OSXCROSS_SDK_VERSION 10.11
 RUN SDK_VERSION=$OSXCROSS_SDK_VERSION                           \
     mkdir /opt/osxcross &&                                      \
     cd /opt &&                                                  \
@@ -46,11 +46,11 @@ RUN SDK_VERSION=$OSXCROSS_SDK_VERSION                           \
     ./build_compiler_rt.sh
     
 ENV UNATTENDED 1
-ENV MACOSX_DEPLOYMENT_TARGET 10.13
-ENV AR x86_64-apple-darwin17-ar
-ENV LD x86_64-apple-darwin17-ld
-ENV CC x86_64-apple-darwin17-cc
-ENV CXX x86_64-apple-darwin17-c++
+ENV MACOSX_DEPLOYMENT_TARGET 10.11
+ENV AR x86_64-apple-darwin15-ar
+ENV LD x86_64-apple-darwin15-ld
+ENV CC x86_64-apple-darwin15-cc
+ENV CXX x86_64-apple-darwin15-c++
 ENV PATH $PATH:/opt/osxcross/target/bin
 
 RUN osxcross-macports -v install boost && \
