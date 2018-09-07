@@ -1,2 +1,2 @@
-# osxcross-10.11-boost
-Osxcross with MacOSX 10.11 SDK and Boost library 
+# osxcross-10.13-boost
+Osxcross with MacOSX 10.13 SDK and Boost library 
