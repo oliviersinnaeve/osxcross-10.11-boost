@@ -57,4 +57,9 @@ RUN osxcross-macports -v install boost && \
     ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-otool /opt/osxcross/target/bin/otool && \
     ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-install_name_tool /opt/osxcross/target/bin/install_name_tool
 
+RUN apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.6 main" && \
+    apt-get update && \
+    apt-get -yy -qq --force-yes install clang-3.6 lldb-3.6 && \
+    ln -f -s /usr/bin/clang-3.6 /usr/bin/clang	&& ln -f -s /usr/bin/clang++-3.6 /usr/bin/clang++
+
 CMD /bin/bash
