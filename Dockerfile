@@ -20,11 +20,11 @@ RUN apt-get update && \
 	zip 		    \
         software-properties-common \
         python-software-properties && \
-    apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.9 main" && \
+    apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main" && \
     apt-get update && \
-    apt-get -yy -qq --force-yes install clang-3.9 lldb-3.9
+    apt-get -yy -qq --force-yes install clang-3.8 lldb-3.8
 	
-RUN ln -f -s /usr/bin/clang-3.9 /usr/bin/clang	&& ln -f -s /usr/bin/clang++-3.9 /usr/bin/clang++
+RUN ln -f -s /usr/bin/clang-3.8 /usr/bin/clang	&& ln -f -s /usr/bin/clang++-3.8 /usr/bin/clang++
 
 # Install osxcross
 # NOTE: The Docker Hub's build machines run varying types of CPUs, so an image
@@ -59,9 +59,9 @@ RUN osxcross-macports -v install boost && \
     ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-otool /opt/osxcross/target/bin/otool && \
     ln -s /opt/osxcross/target/bin/x86_64-apple-darwin15-install_name_tool /opt/osxcross/target/bin/install_name_tool
 
-RUN apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.6 main" && \
+RUN apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main" && \
     apt-get update && \
-    apt-get -yy -qq --force-yes install clang-3.9 lldb-3.9 && \
-    ln -f -s /usr/bin/clang-3.9 /usr/bin/clang	&& ln -f -s /usr/bin/clang++-3.9 /usr/bin/clang++
+    apt-get -yy -qq --force-yes install clang-3.8 lldb-3.8 && \
+    ln -f -s /usr/bin/clang-3.8 /usr/bin/clang	&& ln -f -s /usr/bin/clang++-3.8 /usr/bin/clang++
 
 CMD /bin/bash
